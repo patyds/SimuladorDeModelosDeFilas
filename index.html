@@ -24,6 +24,9 @@
                     <div class="tab-container" id="mm1">
                         <div class="model-content">
                             <div class="left">
+                                <div class="title">
+                                    <p>Parámetros</p>
+                                </div>
                                 <div class="input-container">
                                     <p>Promedio de llegada</p>
                                     <input type="number" id="mm1-arrival">
@@ -35,7 +38,7 @@
                                 <div class="input-container">
                                     <p>Probabilidades</p>
                                     <input type="number" id="mm1-prob">
-                                    <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
+                                    <p class="side-note">Separados por: <br>Puntos para números individuales [.] <br>Guiones para serie de números[-]</p>
                                 </div>
                                 <div class="button-container">
                                         <button id="mm1-button" type="button">Generar</button>
@@ -65,6 +68,16 @@
                                             
                                         </div>
                                     </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Probabilidades</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mm1-l">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -72,6 +85,9 @@
                     <div class="tab-container" id="mms">
                         <div class="model-content">
                             <div class="left overflow">
+                                <div class="title">
+                                    <p>Parámetros</p>
+                                </div>
                                 <div class="input-container">
                                     <p>Promedio de llegada</p>
                                     <input type="number" id="mms-arrival">
@@ -114,6 +130,166 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mms-l">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Probabilidades</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mms-prob">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-container" id="mmsk">
+                        <div class="model-content">
+                            <div class="left overflow">
+                                    <div class="title">
+                                            <p>Parámetros</p>
+                                        </div>
+                                <div class="input-container">
+                                    <p>Promedio de llegada</p>
+                                    <input type="number" id="mmsk-arrival">
+                                </div>
+                                <div class="input-container">
+                                    <p>Promedio de servicio</p>
+                                    <input type="number" id="mmsk-service">
+                                </div>
+                                <div class="input-container">
+                                    <p>Servidores</p>
+                                    <input type="number" id="mmsk-servers">
+                                </div> 
+                                <div class="input-container">
+                                    <p>Limite de personas</p>
+                                    <input type="number" id="mmsk-servers">
+                                </div> 
+                                <div class="input-container">
+                                    <p>Probabilidades</p>
+                                    <input type="number" id="mmsk-prob">
+                                    <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
+                                </div>
+                                <div class="input-container">
+                                        <button id="mmsk-button" type="button">Generar</button>
+                                </div>                           
+                            </div> 
+                            <div class="right">
+                                <div class="res-body">
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">W</div>
+                                                <div class="tdata">Wq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-w">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">L</div>
+                                                <div class="tdata">Lq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-l">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Eficiencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-ef">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Probabilidades</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-prob">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-container" id="mg1">
+                        <div class="model-content">
+                            <div class="left overflow">
+                                <div class="title">
+                                    <p>Parámetros</p>
+                                </div>
+                                <div class="input-container">
+                                    <p>Promedio de llegada</p>
+                                    <input type="number" id="mg1-arrival">
+                                </div>
+                                <div class="input-container">
+                                    <p>Promedio de servicio</p>
+                                    <input type="number" id="mg1-service">
+                                </div>
+                                <div class="input-container radio">
+                                    <p>Distribuición</p>
+                                    <input type="radio" class="distribution" name="general" value="standar" ><label>Estandar</label><br>
+                                    <input type="radio" class="distribution" name="general" value="negative" ><label>Exp. Negativa</label><br>
+                                    <input type="radio" class="distribution" name="general" value="erlang" ><label>Erlang</label><br>
+                                </div> 
+                                <div class="input-container" id="erlang_num">
+                                        <p>K</p>
+                                        <input type="number" id="mg1-k">
+                                    </div>
+                                <div class="input-container">
+                                    <p>Probabilidades</p>
+                                    <input type="number" id="mg1-prob">
+                                    <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
+                                </div>
+                                <div class="button-container">
+                                        <button id="mg1-button" type="button">Generar</button>
+                                </div>                           
+                            </div> 
+                            <div class="right">
+                                <div class="res-body">
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">W</div>
+                                                <div class="tdata">Wq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mg1-w">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">L</div>
+                                                <div class="tdata">Lq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mg1-l">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Probabilidades</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mg1-prob">
                                             
                                         </div>
                                     </div>

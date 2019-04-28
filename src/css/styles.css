@@ -51,7 +51,7 @@ body, p{
     flex: 1;
     cursor: pointer;
     color: white;
-    padding: 20% 5vw;
+    padding: 20% 2vw;
     background-color: rgb(1, 151, 166);
     text-align: center;
     justify-content: center;
@@ -64,7 +64,7 @@ body, p{
 }
 
 .simulator-tabs-content{
-    flex: 3;
+    flex: 4;
     display: flex;
     flex-direction: column;
 }
@@ -86,7 +86,7 @@ body, p{
 }
 
 .input-container{
-    padding: 10% 1vw;
+    padding: 5% 1vw;
     text-align: center;
 }
 
@@ -152,12 +152,26 @@ button{
 .trow .val{
     flex: 0 0 50px;
 }
-.overflow .input-container{
-    /* overflow-y: scroll; */
-    padding: 5% 1vw;
+.overflow{
+    overflow-y: scroll;
+    /* padding: 5% 1vw; */
 }
 
+.title{
+    padding: 5% 1vw;
+    text-align: center;
+    font-weight: 700;
+}
 .button-container{
     padding: 2vh 1vw;
     text-align: center;
+}
+
+.radio label{
+    text-align: right;
+    font-size: 13px;
+}
+
+#erlang_num{
+    display: none;
 }

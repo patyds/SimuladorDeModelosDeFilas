@@ -3,6 +3,11 @@ const superagent = require('superagent');
 
 $(document).ready(function() {
     $(".simulator-tabs-names .tab-name").click(selectTab);
+    $(".distribution").click(erlang);
+    $("#mm1-button").click(mm1);
+    $("#mms-button").click(mms);
+    $("#mmsk-button").click(mmsk);
+    $("#mg1-button").click(mg1);
 })
 function selectTab(){
     $(".tab-container").hide();
@@ -12,8 +17,32 @@ function selectTab(){
     $(this).addClass("selected");
     $("#tbody-mm1").html("");
     $("#tbody-mms").html("");
-    /*$("#tbody-lc").html("");
-    $("#tbody-lcm").html("");
-    $("#tbody-lcc").html(""); */
-    $(".test").hide();
+    $("#tbody-mmsk").html("");
+    $("#tbody-mg1").html("");
+   
+    
 }   
+
+function erlang(){
+    if($('input[value=erlang]').is(':checked')){
+        $("#erlang_num").show()
+    }else{
+        $("#erlang_num").hide()
+    }
+}
+
+function mm1(){
+
+}
+
+function mms(){
+
+}
+
+function mmsk(){
+
+}
+
+function mg1(){
+    
+}
