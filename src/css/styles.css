@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,500,600');
+
+body, p{
+    margin:0;
+    padding:0;
+    font-family: 'Comfortaa', sans-serif;
+    min-height: 100%;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header{
+    background-image: url('../assets/header2.png');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100%  100%;
+    align-items: center;
+    justify-content: center;
+    height: 23%;
+    position: relative;
+}
+.header-text{
+    font-weight: 500;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(1, 151, 166);
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    padding: 1.5vh 2vw;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+
+.simulator{
+    display: flex;
+    height: 77%;
+}
+
+.simulator-tabs-names{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.tab-name{
+    flex: 1;
+    cursor: pointer;
+    color: white;
+    padding: 20% 5vw;
+    background-color: rgb(1, 151, 166);
+    text-align: center;
+    justify-content: center;
+}
+.tab-name:hover{
+    background-color: rgba(1, 152, 166, 0.863);
+}
+.tab-name.selected{
+    background-color: rgba(1, 152, 166, 0.863);
+}
+
+.simulator-tabs-content{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-container{
+    height: 100%;
+    display: none;
+}
+
+.model-content{
+    display: flex;
+    height: 100%;
+}
+
+.left{
+    flex: 2;
+    flex-direction: column;
+    background-color: rgb(181, 226, 231);
+}
+
+.input-container{
+    padding: 10% 1vw;
+    text-align: center;
+}
+
+.input-container .side-note{
+    font-size: 10px;
+}
+
+.input-container p{
+    margin:0;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+input{
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family: 'Comfortaa', sans-serif;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid rgb(4, 130, 141);
+}
+
+button{
+    border: 1px solid rgb(4, 130, 141);
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 1.5vh 3vw;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background-color: rgb(4, 130, 141);
+    color: white;
+    cursor: pointer;
+}
+
+.right{
+    flex: 3
+}
+.res-body{
+    text-align: center;
+}
+.table{
+    padding: 5vh 5vw;
+    /* overflow-y: scroll; */
+}
+.theader{
+    font-weight: 700;
+}   
+.trow{
+    display: flex;
+}
+.tdata{
+    flex:1;
+    padding: 0.5vh 1vw;
+    border-right: solid 1px;
+    border-right-color:rgba(1, 152, 166, 0.863);
+}
+.trow .tdata:first-child{
+    border-left: solid 1px;
+    border-left-color:rgba(1, 152, 166, 0.863);
+}
+.trow .val{
+    flex: 0 0 50px;
+}
+.overflow .input-container{
+    /* overflow-y: scroll; */
+    padding: 5% 1vw;
+}
+
+.button-container{
+    padding: 2vh 1vw;
+    text-align: center;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SIMULADOR DE MODELOS DE FILAS DE ESPERA</title>
+        <link rel="stylesheet" href="./src/css/styles.css" />
+        <script src="./src/js/simulator.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="main-wrapper">
+            <div class="header">
+                <div class="header-text">
+                    <p>Modelos de filas</p>
+                </div>
+            </div>
+            <div class="simulator">
+                <div class="simulator-tabs-names">
+                    <div class="tab-name" data-target="mm1"><p>M / M / 1</p></div>
+                    <div class="tab-name" data-target="mms"><p>M / M / s</p></div>
+                    <div class="tab-name" data-target="mmsk"><p>M / M / s / K</p></div>
+                    <div class="tab-name" data-target="mg1"><p>M / G / 1</p></div>
+                </div>
+                <div class="simulator-tabs-content">
+                    <div class="tab-container" id="mm1">
+                        <div class="model-content">
+                            <div class="left">
+                                <div class="input-container">
+                                    <p>Promedio de llegada</p>
+                                    <input type="number" id="mm1-arrival">
+                                </div>
+                                <div class="input-container">
+                                    <p>Promedio de servicio</p>
+                                    <input type="number" id="mm1-service">
+                                </div> 
+                                <div class="input-container">
+                                    <p>Probabilidades</p>
+                                    <input type="number" id="mm1-prob">
+                                    <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
+                                </div>
+                                <div class="button-container">
+                                        <button id="mm1-button" type="button">Generar</button>
+                                </div>                           
+                            </div> 
+                            <div class="right">
+                                <div class="res-body">
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">W</div>
+                                                <div class="tdata">Wq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mm1-w">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">L</div>
+                                                <div class="tdata">Lq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mm1-l">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-container" id="mms">
+                        <div class="model-content">
+                            <div class="left overflow">
+                                <div class="input-container">
+                                    <p>Promedio de llegada</p>
+                                    <input type="number" id="mms-arrival">
+                                </div>
+                                <div class="input-container">
+                                    <p>Promedio de servicio</p>
+                                    <input type="number" id="mms-service">
+                                </div>
+                                <div class="input-container">
+                                    <p>Servidores</p>
+                                    <input type="number" id="mms-servers">
+                                </div> 
+                                <div class="input-container">
+                                    <p>Probabilidades</p>
+                                    <input type="number" id="mms-prob">
+                                    <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
+                                </div>
+                                <div class="input-container">
+                                        <button id="mms-button" type="button">Generar</button>
+                                </div>                           
+                            </div> 
+                            <div class="right">
+                                <div class="res-body">
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">W</div>
+                                                <div class="tdata">Wq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mms-w">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">L</div>
+                                                <div class="tdata">Lq</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mms-l">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

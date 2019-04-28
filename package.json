@@ -1,0 +1,19 @@
+{
+  "name": "modelosdefilas",
+  "version": "1.0.0",
+  "description": "Simulador de modelos de filas",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "author": "Mononucleo",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "superagent": "^5.0.2"
+  }
+}
