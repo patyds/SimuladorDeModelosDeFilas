@@ -62,25 +62,17 @@ function mm1(){
                             $("#tdata-mm1-l").text(mm1.l);
                             $("#tdata-mm1-lq").text(mm1.lq);
                             $("#tbody-mm1-p0").html(mm1.p0);
-                            /*var resbody =$("#tbody-ms");
-                            if(ms.Randoms.length < $("#ms-lim").val()){
-                                alert("El periodo se cumplió antes del límite de números random")
-                            }
-                            for (let index = 0; index < ms.Randoms.length; index++) {
+                            var resbody =$("#tbody-mm1-p");
+                            for (let index = 0; index < mm1.Probs.length; index++) {
                                 var row = $("<div></div>").addClass("trow")
-                                var element = $("<div></div>").addClass("tdata number").text(index+1);
+                                var element = $("<div></div>").addClass("tdata number").text(mm1.Probs.Observable[index]);
                                 $(row).append(element);
-                                element = $("<div></div>").addClass("tdata").text(ms.Seed[index]);
+                                element = $("<div></div>").addClass("tdata").text(mm1.Probs.Probability[index]);
                                 $(row).append(element);
-                                element = $("<div></div>").addClass("tdata").text(ms.Generator[index]);
-                                $(row).append(element);
-                                element = $("<div></div>").addClass("tdata").text(ms.Generated[index]);
-                                $(row).append(element);
-                                element = $("<div></div>").addClass("tdata").text(ms.Randoms[index].toFixed(4));
-                                $(row).append(element);
+                                
+                                
                                 $(resbody).append(row);
-                            }*/
-                            
+                            }
                         }
                     });
                 }
@@ -99,6 +91,16 @@ function mm1(){
                         $("#tdata-mm1-l").text(mm1.l);
                         $("#tdata-mm1-lq").text(mm1.lq);
                         $("#tdata-mm1-p0").html(mm1.p0);
+                        var resbody =$("#tbody-mm1-p");
+                        for (let index = 0; index < mm1.Probs.length; index++) {
+                            var row = $("<div></div>").addClass("trow")
+                            var element = $("<div></div>").addClass("tdata number").text(mm1.Probs.Observable[index]);
+                            $(row).append(element);
+                            element = $("<div></div>").addClass("tdata").text(mm1.Probs.Probability[index]);
+                            $(row).append(element);
+                            
+                            $(resbody).append(row);
+                        }
                         /*var resbody =$("#tbody-ms");
                         if(ms.Randoms.length < $("#ms-lim").val()){
                             alert("El periodo se cumplió antes del límite de números random")
