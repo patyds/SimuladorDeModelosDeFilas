@@ -1,7 +1,8 @@
 var $ = require('jquery');
 const superagent = require('superagent');
 const app = "https://mononucleo-modelos-filas.herokuapp.com/";
-
+var persons = [];
+var personNumber = 10;
 $(document).ready(function() {
     $(".simulator-tabs-names .tab-name").click(selectTab);
     $(".distribution").click(erlang);
@@ -13,8 +14,40 @@ $(document).ready(function() {
     $("#mms-button").click(mms);
     $("#mmsk-button").click(mmsk);
     $("#mg1-button").click(mg1);
+    populateHeader();
 })
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+function populateHeader(){
+    for(var x = 0; x < personNumber; x++)
+    {
+        persons.push("<div class='person p"+x+"' style=\"top: 0; background-image: url('./src/assets/person.png'); animation-delay: " + (x/2) + "s; transform: rotateZ("+ (getRandomInt(10) - getRandomInt(20)) +"deg);\"></div>");
+        $(".header").append(persons[x]);
+    }
+    setTimeout(function(){
+        for(var x = 0; x < personNumber; x++)
+        {
+            $(".p"+x).css("animation-play-state", "paused");
+        }
+    }, 4500);
+    
+}
+function movePerson()
+{
+    for(var x = 0; x < personNumber; x++)
+    {
+        $(".p"+x).css("animation-play-state", "running");
+    }
+    setTimeout(function(){
+        for(var x = 0; x < personNumber; x++)
+        {
+            $(".p"+x).css("animation-play-state", "paused");
+        }
+    }, 500);
+}
 function selectTab(){
+    movePerson();
     $(".tab-container").hide();
     $(".simulator-tabs-names .tab-name").removeClass("selected");
     let tab = $(this).attr("data-target");
@@ -23,9 +56,7 @@ function selectTab(){
     $("#tbody-mm1").html("");
     $("#tbody-mms").html("");
     $("#tbody-mmsk").html("");
-    $("#tbody-mg1").html("");
-   
-    
+    $("#tbody-mg1").html(""); 
 }   
 
 function erlang(){
@@ -38,6 +69,8 @@ function erlang(){
 
 function mm1(){
     $("#mm1-table-cost").hide();
+    movePerson();
+    $("#tbody-mg1-w").html("");
     if($("#mm1-arrival").val()=="" || $("#mm1-service").val()==""){
         alert("Por favor llene los campos requeridos")
     }else if(parseInt($("#mm1-arrival").val()) < 0 || parseInt($("#mm1-service").val()) < 0){
