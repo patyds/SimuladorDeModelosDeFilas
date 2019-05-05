@@ -49,14 +49,14 @@
                                 </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
-                                    <input type="number" id="mm1-prob">
+                                    <input  type="text" pattern="[0-9]+([-|,][0-9]+)?" id="mm1-prob">
                                     <p class="side-note">Separados por: <br>Puntos para números individuales [.] <br>Guiones para serie de números[-]</p>
                                 </div>
                                 <div class="button-container">
                                         <button id="mm1-button" type="button">Generar</button>
                                 </div>                           
                             </div> 
-                            <div class="right">
+                            <div class="right overflow">
                                 <div class="res-body">
                                     <div class="table">
                                         <div class="thead">
@@ -98,13 +98,25 @@
                                            </div>
                                         </div>
                                     </div>
+                                    <div class="table hide" id="mm1-table-cost">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Costo de utilización</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mm1-cost">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mm1-cost"></div>
+                                           </div>
+                                        </div>
+                                    </div>
                                     <div class="table">
                                         <div class="thead">
                                             <div class="theader trow">
                                                 <div class="tdata">Probabilidades</div>
                                             </div>
                                         </div>
-                                        <div class="tbody" id="tbody-mm1-l">
+                                        <div class="tbody" id="tbody-mm1-p">
                                             
                                         </div>
                                     </div>
@@ -144,14 +156,14 @@
                                 </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
-                                    <input type="number" id="mms-prob">
+                                    <input  type="text" pattern="[0-9]+([-|,][0-9]+)?" id="mms-prob">
                                     <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
                                 </div>
                                 <div class="input-container">
                                         <button id="mms-button" type="button">Generar</button>
                                 </div>                           
                             </div> 
-                            <div class="right">
+                            <div class="right overflow">
                                 <div class="res-body">
                                     <div class="table">
                                         <div class="thead">
@@ -161,7 +173,10 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mms-w">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mms-w"></div>
+                                                <div class="tdata" id="tdata-mms-wq"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -172,7 +187,34 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mms-l">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mms-l"></div>
+                                                <div class="tdata" id="tdata-mms-lq"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">P0</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mms-p0">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mms-p0"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="table hide" id="mms-table-cost">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Costo de utilización</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mms-cost">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mms-cost"></div>
+                                           </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -181,7 +223,7 @@
                                                 <div class="tdata">Probabilidades</div>
                                             </div>
                                         </div>
-                                        <div class="tbody" id="tbody-mms-prob">
+                                        <div class="tbody" id="tbody-mms-p">
                                             
                                         </div>
                                     </div>
@@ -209,7 +251,7 @@
                                 </div> 
                                 <div class="input-container">
                                     <p>Limite de personas</p>
-                                    <input type="number" id="mmsk-servers">
+                                    <input type="number" id="mmsk-k">
                                 </div> 
                                 <div class="input-container">
                                     <p>Costo</p>
@@ -225,14 +267,14 @@
                                 </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
-                                    <input type="number" id="mmsk-prob">
+                                    <input type="text" pattern="[0-9]+([-|,][0-9]+)?" id="mmsk-prob">
                                     <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
                                 </div>
                                 <div class="input-container">
                                         <button id="mmsk-button" type="button">Generar</button>
                                 </div>                           
                             </div> 
-                            <div class="right">
+                            <div class="right overflow">
                                 <div class="res-body">
                                     <div class="table">
                                         <div class="thead">
@@ -242,7 +284,10 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mmsk-w">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mmsk-w"></div>
+                                                <div class="tdata" id="tdata-mmsk-wq"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -253,7 +298,10 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mmsk-l">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mmsk-l"></div>
+                                                <div class="tdata" id="tdata-mmsk-lq"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -263,7 +311,33 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mmsk-ef">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mmsk-ef"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">P0</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-p0">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mmsk-p0"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="table hide" id="mmsk-table-cost">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Costo de utilización</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mmsk-cost">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mmsk-cost"></div>
+                                           </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -272,7 +346,7 @@
                                                 <div class="tdata">Probabilidades</div>
                                             </div>
                                         </div>
-                                        <div class="tbody" id="tbody-mmsk-prob">
+                                        <div class="tbody" id="tbody-mmsk-p">
                                             
                                         </div>
                                     </div>
@@ -296,9 +370,9 @@
                                 </div>
                                 <div class="input-container radio">
                                     <p>Distribuición</p>
-                                    <input type="radio" class="distribution" name="general" value="standar" ><label>Estandar</label><br>
-                                    <input type="radio" class="distribution" name="general" value="negative" ><label>Exp. Negativa</label><br>
-                                    <input type="radio" class="distribution" name="general" value="erlang" ><label>Erlang</label><br>
+                                    <input type="radio" class="distribution" name="general" value="md1" ><label>Estandar</label><br>
+                                    <input type="radio" class="distribution" name="general" value="mg1" ><label>Exp. Negativa</label><br>
+                                    <input type="radio" class="distribution" name="general" value="mek1" ><label>Erlang</label><br>
                                 </div> 
                                 <div class="input-container" id="erlang_num">
                                     <p>K</p>
@@ -318,14 +392,14 @@
                                 </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
-                                    <input type="number" id="mg1-prob">
+                                    <input type="text" pattern="[0-9]+([-|,][0-9]+)?"  id="mg1-prob">
                                     <p class="side-note">Separados por: <br>Puntos [.] para números individuales <br>Guiones para serie de números[-]</p>
                                 </div>
                                 <div class="button-container">
                                         <button id="mg1-button" type="button">Generar</button>
                                 </div>                           
                             </div> 
-                            <div class="right">
+                            <div class="right overflow">
                                 <div class="res-body">
                                     <div class="table">
                                         <div class="thead">
@@ -336,8 +410,8 @@
                                         </div>
                                         <div class="tbody" id="tbody-mg1-w">
                                             <div class="trow">
-                                                <div id="tdata-wmm1">W</div>
-                                                <div id="tdata-wqmm1">Wq</div>
+                                                <div class="tdata" id="tdata-mg1-w"></div>
+                                                <div class="tdata" id="tdata-mg1-wq"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +423,34 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mg1-l">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mg1-l"></div>
+                                                <div class="tdata" id="tdata-mg1-lq"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="table">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">P0</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mg1-p0">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mg1-p0"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="table hide" id="mg1-table-cost">
+                                        <div class="thead">
+                                            <div class="theader trow">
+                                                <div class="tdata">Costo de utilización</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbody" id="tbody-mg1-cost">
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mg1-cost"></div>
+                                           </div>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -359,7 +460,9 @@
                                             </div>
                                         </div>
                                         <div class="tbody" id="tbody-mg1-prob">
-                                            
+                                            <div class="trow">
+                                                <div class="tdata" id="tdata-mg1-cost"></div>
+                                           </div>
                                         </div>
                                     </div>
                                 </div>

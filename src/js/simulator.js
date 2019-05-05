@@ -29,7 +29,7 @@ function selectTab(){
 }   
 
 function erlang(){
-    if($('input[value=erlang]').is(':checked')){
+    if($('input[value=mek1]').is(':checked')){
         $("#erlang_num").show()
     }else{
         $("#erlang_num").hide()
@@ -37,7 +37,7 @@ function erlang(){
 }
 
 function mm1(){
-    $("#tbody-mg1-w").html("");
+    $("#mm1-table-cost").hide();
     if($("#mm1-arrival").val()=="" || $("#mm1-service").val()==""){
         alert("Por favor llene los campos requeridos")
     }else if(parseInt($("#mm1-arrival").val()) < 0 || parseInt($("#mm1-service").val()) < 0){
@@ -61,23 +61,28 @@ function mm1(){
                             $("#tdata-mm1-wq").text(mm1.wq);
                             $("#tdata-mm1-l").text(mm1.l);
                             $("#tdata-mm1-lq").text(mm1.lq);
-                            $("#tbody-mm1-p0").html(mm1.p0);
+                            $("#tbody-mm1-p0").text(mm1.p0);
+                            $("#mm1-table-cost").show();
+                            $("#tbody-mm1-cost").text(mm1.utilizationcost);
                             var resbody =$("#tbody-mm1-p");
-                            for (let index = 0; index < mm1.Probs.length; index++) {
+                            resbody.html("");
+                            for (let index = 0; index < mm1.probs.Observable.length; index++) {
                                 var row = $("<div></div>").addClass("trow")
-                                var element = $("<div></div>").addClass("tdata number").text(mm1.Probs.Observable[index]);
+                                var element = $("<div></div>").addClass("tdata number").text(mm1.probs.Observable[index]);
                                 $(row).append(element);
-                                element = $("<div></div>").addClass("tdata").text(mm1.Probs.Probability[index]);
+                                element = $("<div></div>").addClass("tdata").text(mm1.probs.Probability[index].toFixed(4));
                                 $(row).append(element);
                                 
                                 
                                 $(resbody).append(row);
                             }
+                            
                         }
                     });
                 }
             }else{
                 var probss = $("#mm1-prob").val() != "" ? $("#mm1-prob").val(): "" ;
+                console.log(probss)
                 superagent.get(app+'mm1')
                 .query({ lambd: $("#mm1-arrival").val(), mu: $("#mm1-service").val(), probs : probss })
                 .end((err, res) => {
@@ -92,33 +97,16 @@ function mm1(){
                         $("#tdata-mm1-lq").text(mm1.lq);
                         $("#tdata-mm1-p0").html(mm1.p0);
                         var resbody =$("#tbody-mm1-p");
-                        for (let index = 0; index < mm1.Probs.length; index++) {
+                        resbody.html("");
+                        for (let index = 0; index < mm1.probs.Observable.length; index++) {
                             var row = $("<div></div>").addClass("trow")
-                            var element = $("<div></div>").addClass("tdata number").text(mm1.Probs.Observable[index]);
+                            var element = $("<div></div>").addClass("tdata number").text(mm1.probs.Observable[index]);
                             $(row).append(element);
-                            element = $("<div></div>").addClass("tdata").text(mm1.Probs.Probability[index]);
+                            element = $("<div></div>").addClass("tdata").text(mm1.probs.Probability[index].toFixed(4));
                             $(row).append(element);
                             
                             $(resbody).append(row);
                         }
-                        /*var resbody =$("#tbody-ms");
-                        if(ms.Randoms.length < $("#ms-lim").val()){
-                            alert("El periodo se cumplió antes del límite de números random")
-                        }
-                        for (let index = 0; index < ms.Randoms.length; index++) {
-                            var row = $("<div></div>").addClass("trow")
-                            var element = $("<div></div>").addClass("tdata number").text(index+1);
-                            $(row).append(element);
-                            element = $("<div></div>").addClass("tdata").text(ms.Seed[index]);
-                            $(row).append(element);
-                            element = $("<div></div>").addClass("tdata").text(ms.Generator[index]);
-                            $(row).append(element);
-                            element = $("<div></div>").addClass("tdata").text(ms.Generated[index]);
-                            $(row).append(element);
-                            element = $("<div></div>").addClass("tdata").text(ms.Randoms[index].toFixed(4));
-                            $(row).append(element);
-                            $(resbody).append(row);
-                        }*/
                     }
                 });
             }
@@ -129,15 +117,322 @@ function mm1(){
 }
 
 function mms(){
-
+    $("#mms-table-cost").hide();
+    if($("#mms-arrival").val()=="" || $("#mms-service").val()=="" || $("#mms-servers").val()==""){
+        alert("Por favor llene los campos requeridos")
+    }else if(parseInt($("#mms-arrival").val()) < 0 || parseInt($("#mms-service").val()) < 0 || parseInt($("#mms-servers").val()) < 0){
+        alert("Por favor, ingrese números positivos")
+    }else{
+        if(navigator.onLine){
+            if( $('input[name=mms-cost]').is(':checked')){
+                if($('#mms-cs').val() == "" || $('#mms-cw').val()== ""){
+                    alert("por favor, ingresa los valores para los costos");
+                }else{
+                    var probss = $("#mms-prob").val() != "" ? $("#mms-prob").val(): "";
+                    superagent.get(app+'mms')
+                    .query({ lambd: $("#mms-arrival").val(), mu: $("#mms-service").val(), probs : probss, servs: $("#mms-servers").val(), twc: $("#mms-cw").val(), sc: $("#mms-cs").val() })
+                    .end((err, res) => {
+                        if (err) { 
+                            return console.log(err); 
+                        }else{
+                            var mms = res.body;
+                            console.log(res.body);
+                            $("#tdata-mms-w").text(mms.w);
+                            $("#tdata-mms-wq").text(mms.wq);
+                            $("#tdata-mms-l").text(mms.l);
+                            $("#tdata-mms-lq").text(mms.lq);
+                            $("#tbody-mms-p0").text(mms.p0);
+                            $("#mms-table-cost").show();
+                            $("#tbody-mms-cost").text(mms.utilizationcost);
+                            var resbody =$("#tbody-mms-p");
+                            resbody.html("");
+                            for (let index = 0; index < mms.probs.Observable.length; index++) {
+                                var row = $("<div></div>").addClass("trow")
+                                var element = $("<div></div>").addClass("tdata number").text(mms.probs.Observable[index]);
+                                $(row).append(element);
+                                element = $("<div></div>").addClass("tdata").text(mms.probs.Probability[index].toFixed(4));
+                                $(row).append(element);
+                                
+                                
+                                $(resbody).append(row);
+                            }
+                            
+                        }
+                    });
+                }
+            }else{
+                var probss = $("#mms-prob").val() != "" ? $("#mms-prob").val(): "" ;
+                console.log(probss)
+                superagent.get(app+'mms')
+                .query({ lambd: $("#mms-arrival").val(), mu: $("#mms-service").val(), probs : probss , servs : $("#mms-servers").val()})
+                .end((err, res) => {
+                    if (err) { 
+                        return console.log(err); 
+                    }else{
+                        var mms = res.body;
+                        console.log(res.body);
+                        $("#tdata-mms-w").text(mms.w);
+                        $("#tdata-mms-wq").text(mms.wq);
+                        $("#tdata-mms-l").text(mms.l);
+                        $("#tdata-mms-lq").text(mms.lq);
+                        $("#tbody-mms-p0").text(mms.p0);
+                        var resbody =$("#tbody-mms-p");
+                        resbody.html("");
+                        for (let index = 0; index < mms.probs.Observable.length; index++) {
+                            var row = $("<div></div>").addClass("trow")
+                            var element = $("<div></div>").addClass("tdata number").text(mms.probs.Observable[index]);
+                            $(row).append(element);
+                            element = $("<div></div>").addClass("tdata").text(mms.probs.Probability[index].toFixed(4));
+                            $(row).append(element);
+                            
+                            $(resbody).append(row);
+                        }
+                    }
+                });
+            }
+        }else{
+            alert("Lo sentimos, necesitas tener una conexión a internet para usar el generador")
+        }
+    }
 }
 
 function mmsk(){
-
+    $("#mmsk-table-cost").hide();
+    if($("#mmsk-arrival").val()=="" || $("#mmsk-service").val()=="" || $("#mmsk-servers").val()==""|| $("#mmsk-k").val()==""){
+        alert("Por favor llene los campos requeridos")
+    }else if(parseInt($("#mmsk-arrival").val()) < 0 || parseInt($("#mmk-service").val()) < 0 || parseInt($("#mmsk-servers").val()) < 0 || parseInt($("#mmsk-k").val()) < 0){
+        alert("Por favor, ingrese números positivos")
+    }else{
+        if(navigator.onLine){
+            console.log($("#mmsk-k").val())
+            if( $('input[name=mmsk-cost]').is(':checked')){
+                if($('#mmsk-cs').val() == "" || $('#mmsk-cw').val()== ""){
+                    alert("por favor, ingresa los valores para los costos");
+                }else{
+                    var probss = $("#mmsk-prob").val() != "" ? $("#mmsk-prob").val(): "";
+                    superagent.get(app+'mmsk')
+                    .query({ lambd: $("#mmsk-arrival").val(), mu: $("#mmsk-service").val(), probs : probss, servs: $("#mmsk-servers").val(), twc: $("#mmsk-cw").val(), sc: $("#mmsk-cs").val(), k: $("#mmsk-k").val()  })
+                    .end((err, res) => {
+                        if (err) { 
+                            return console.log(err); 
+                        }else{
+                            var mmsk = res.body;
+                            console.log(res.body);
+                            $("#tdata-mmsk-w").text(mmsk.w);
+                            $("#tdata-mmsk-wq").text(mmsk.wq);
+                            $("#tdata-mmsk-ef").text(mmsk.le);
+                            $("#tdata-mmsk-l").text(mmsk.l);
+                            $("#tdata-mmsk-lq").text(mmsk.lq);
+                            $("#tbody-mmsk-p0").text(mmsk.p0);
+                            $("#mmsk-table-cost").show();
+                            $("#tdata-mmsk-cost").text(mmsk.utilizationcost);
+                            var resbody =$("#tbody-mmsk-p");
+                            resbody.html("");
+                            for (let index = 0; index < mmsk.probs.Observable.length; index++) {
+                                var row = $("<div></div>").addClass("trow")
+                                var element = $("<div></div>").addClass("tdata number").text(mmsk.probs.Observable[index]);
+                                $(row).append(element);
+                                element = $("<div></div>").addClass("tdata").text(mmsk.probs.Probability[index].toFixed(4));
+                                $(row).append(element);
+                                
+                                
+                                $(resbody).append(row);
+                            }
+                            
+                        }
+                    });
+                }
+            }else{
+                var probss = $("#mmsk-prob").val() != "" ? $("#mmsk-prob").val(): "" ;
+                console.log(probss)
+                superagent.get(app+'mmsk')
+                .query({ lambd: $("#mmsk-arrival").val(), mu: $("#mmsk-service").val(), probs : probss , servs : $("#mmsk-servers").val(), k : $("#mmsk-k").val()})
+                .end((err, res) => {
+                    if (err) { 
+                        return console.log(err); 
+                    }else{
+                        var mmsk = res.body;
+                        console.log(res.body);
+                        $("#tdata-mmsk-w").text(mmsk.w);
+                        $("#tdata-mmsk-ef").text(mmsk.le);
+                        $("#tdata-mmsk-wq").text(mmsk.wq);
+                        $("#tdata-mmsk-l").text(mmsk.l);
+                        $("#tdata-mmsk-lq").text(mmsk.lq);
+                        $("#tbody-mmsk-p0").text(mmsk.p0);
+                        var resbody =$("#tbody-mmsk-p");
+                        resbody.html("");
+                        for (let index = 0; index < mmsk.probs.Observable.length; index++) {
+                            var row = $("<div></div>").addClass("trow")
+                            var element = $("<div></div>").addClass("tdata number").text(mmsk.probs.Observable[index]);
+                            $(row).append(element);
+                            element = $("<div></div>").addClass("tdata").text(mmsk.probs.Probability[index].toFixed(4));
+                            $(row).append(element);
+                            
+                            $(resbody).append(row);
+                        }
+                    }
+                });
+            }
+        }else{
+            alert("Lo sentimos, necesitas tener una conexión a internet para usar el generador")
+        }
+    }
 }
 
 function mg1(){
-    
+    $("#mg1-table-cost").hide();
+    if($("#mg1-arrival").val()=="" || $("#mg1-service").val()==""){
+        alert("Por favor llene los campos requeridos")
+    }else if(parseInt($("#mg1-arrival").val()) < 0 || parseInt($("#mg1-service").val()) < 0){
+        alert("Por favor, ingrese números positivos")
+    }else if($("input[name='general']:checked").val()== undefined){
+        alert("Por favir, selecciona una distribución")
+    }else{
+        if(navigator.onLine){
+            if( $('input[name=mg1-cost]').is(':checked')){
+                if($('#mg1-cs').val() == "" || $('#mg1-cw').val()== ""){
+                    alert("por favor, ingresa los valores para los costos");
+                }else{
+                    var probss = $("#mg1-prob").val() != "" ? $("#mg1-prob").val(): "";
+                    if($("input[name='general']:checked").val()== "mek1"){
+                        if($("#mg1-k").val() == ""){
+                            alert("Tiener que ingresar el valor de 'k'");
+                        }else{
+                            superagent.get(app+$("input[name='general']:checked").val())
+                            .query({ lambd: $("#mg1-arrival").val(), mu: $("#mg1-service").val(), probs : probss, twc: $("#mg1-cw").val(), sc: $("#mg1-cs").val(), k: $("#mg1-k").val() })
+                            .end((err, res) => {
+                                if (err) { 
+                                    return console.log(err); 
+                                }else{
+                                    var mg1 = res.body;
+                                    console.log(res.body);
+                                    $("#tdata-mg1-w").text(mg1.w);
+                                    $("#tdata-mg1-wq").text(mg1.wq);
+                                    $("#tdata-mg1-l").text(mg1.l);
+                                    $("#tdata-mg1-lq").text(mg1.lq);
+                                    $("#tbody-mg1-p0").text(mg1.p0);
+                                    $("#mg1-table-cost").show();
+                                    $("#tbody-mg1-cost").text(mg1.utilizationcost);
+                                    var resbody =$("#tbody-mg1-p");
+                                    resbody.html("");
+                                    for (let index = 0; index < mg1.probs.Observable.length; index++) {
+                                        var row = $("<div></div>").addClass("trow")
+                                        var element = $("<div></div>").addClass("tdata number").text(mmg.probs.Observable[index]);
+                                        $(row).append(element);
+                                        element = $("<div></div>").addClass("tdata").text(mmg.probs.Probability[index].toFixed(4));
+                                        $(row).append(element);
+                                        
+                                        
+                                        $(resbody).append(row);
+                                    }
+                                    
+                                }
+                            });
+                        }
+                    }else{
+                    
+                        superagent.get(app+$("input[name='general']:checked").val())
+                        .query({ lambd: $("#mg1-arrival").val(), mu: $("#mg1-service").val(), probs : probss, twc: $("#mg1-cw").val(), sc: $("#mg1-cs").val() })
+                        .end((err, res) => {
+                            if (err) { 
+                                return console.log(err); 
+                            }else{
+                                var mg1 = res.body;
+                                console.log(res.body);
+                                $("#tdata-mg1-w").text(mg1.w);
+                                $("#tdata-mg1-wq").text(mg1.wq);
+                                $("#tdata-mg1-l").text(mg1.l);
+                                $("#tdata-mg1-lq").text(mg1.lq);
+                                $("#tbody-mg1-p0").text(mg1.p0);
+                                $("#mg1-table-cost").show();
+                                $("#tbody-mg1-cost").text(mg1.utilizationcost);
+                                var resbody =$("#tbody-mg1-p");
+                                resbody.html("");
+                                for (let index = 0; index < mg1.probs.Observable.length; index++) {
+                                    var row = $("<div></div>").addClass("trow")
+                                    var element = $("<div></div>").addClass("tdata number").text(mg1.probs.Observable[index]);
+                                    $(row).append(element);
+                                    element = $("<div></div>").addClass("tdata").text(mg1.probs.Probability[index].toFixed(4));
+                                    $(row).append(element);
+                                    
+                                    
+                                    $(resbody).append(row);
+                                }
+                                
+                            }
+                        });
+                    }
+                }
+            }else{
+                var probss = $("#gm1-prob").val() != "" ? $("#mg1-prob").val(): "" ;
+                if($("input[name='general']:checked").val()== "mek1"){
+                    if($("#mg1-k").val() == ""){
+                        alert("Tiener que ingresar el valor de 'k'");
+                    }else{
+                        superagent.get(app+$("input[name='general']:checked").val())
+                        .query({ lambd: $("#mg1-arrival").val(), mu: $("#mg1-service").val(), probs : probss, k: $("#mg1-k").val() })
+                        .end((err, res) => {
+                            if (err) { 
+                                return console.log(err); 
+                            }else{
+                                var mg1 = res.body;
+                                console.log(res.body);
+                                $("#tdata-mg1-w").text(mg1.w);
+                                $("#tdata-mg1-wq").text(mg1.wq);
+                                $("#tdata-mg1-l").text(mg1.l);
+                                $("#tdata-mg1-lq").text(mg1.lq);
+                                $("#tbody-mg1-p0").text(mg1.p0);
+                                $("#mg1-table-cost").show();
+                                $("#tbody-mg1-cost").text(mg1.utilizationcost);
+                                var resbody =$("#tbody-mg1-p");
+                                resbody.html("");
+                                for (let index = 0; index < mg1.probs.Observable.length; index++) {
+                                    var row = $("<div></div>").addClass("trow")
+                                    var element = $("<div></div>").addClass("tdata number").text(mmg.probs.Observable[index]);
+                                    $(row).append(element);
+                                    element = $("<div></div>").addClass("tdata").text(mmg.probs.Probability[index].toFixed(4));
+                                    $(row).append(element);
+                                    
+                                    
+                                    $(resbody).append(row);
+                                }
+                                
+                            }
+                        });
+                    }
+                }else{
+                    superagent.get(app+$("input[name='general']:checked").val())
+                    .query({ lambd: $("#mg1-arrival").val(), mu: $("#mg1-service").val(), probs : probss })
+                    .end((err, res) => {
+                        if (err) { 
+                            return console.log(err); 
+                        }else{
+                            var mg1 = res.body;
+                            console.log(res.body);
+                            $("#tdata-mg1-w").text(mg1.w);
+                            $("#tdata-mg1-wq").text(mg1.wq);
+                            $("#tdata-mg1-l").text(mg1.l);
+                            $("#tdata-mg1-lq").text(mg1.lq);
+                            $("#tdata-mg1-p0").html(mg1.p0);
+                            var resbody =$("#tbody-mg1-p");
+                            resbody.html("");
+                            for (let index = 0; index < mg1.probs.Observable.length; index++) {
+                                var row = $("<div></div>").addClass("trow")
+                                var element = $("<div></div>").addClass("tdata number").text(mg1.probs.Observable[index]);
+                                $(row).append(element);
+                                element = $("<div></div>").addClass("tdata").text(mg1.probs.Probability[index].toFixed(4));
+                                $(row).append(element);
+                                
+                                $(resbody).append(row);
+                            }
+                        }
+                    });
+                }
+            }
+        }else{
+            alert("Lo sentimos, necesitas tener una conexión a internet para usar el generador")
+        }
+    }
 }
 
 function mm1cost(){

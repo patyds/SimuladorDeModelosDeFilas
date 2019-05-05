@@ -187,3 +187,7 @@ button{
 .smaller p{
     font-size: 12px;
 }
+
+.hide{
+    display: none;
+}
