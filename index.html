@@ -23,7 +23,7 @@
                 <div class="simulator-tabs-content">
                     <div class="tab-container" id="mm1">
                         <div class="model-content">
-                            <div class="left">
+                            <div class="left overflow">
                                 <div class="title">
                                     <p>Parámetros</p>
                                 </div>
@@ -34,7 +34,19 @@
                                 <div class="input-container">
                                     <p>Promedio de servicio</p>
                                     <input type="number" id="mm1-service">
-                                </div> 
+                                </div>
+                                <div class="input-container">
+                                    <p>Costo</p>
+                                    <input type="checkbox" name="mm1-cost" class="mm1-cost"><label>Calcular costo</label>
+                                </div>
+                                <div class="input-container cost-input mm1-cost-input smaller">
+                                    <p>Costo del servicio</p>
+                                    <input type="number" id="mm1-cs">
+                                </div>
+                                <div class="input-container cost-input mm1-cost-input smaller">
+                                    <p>Costo por tiempo de espera</p>
+                                    <input type="number" id="mm1-cw">
+                                </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
                                     <input type="number" id="mm1-prob">
@@ -100,6 +112,18 @@
                                     <p>Servidores</p>
                                     <input type="number" id="mms-servers">
                                 </div> 
+                                <div class="input-container">
+                                    <p>Costo</p>
+                                    <input type="checkbox" name="mms-cost" class="mms-cost"><label>Calcular costo</label>
+                                </div>
+                                <div class="input-container cost-input mms-cost-input smaller">
+                                    <p>Costo del servicio</p>
+                                    <input type="number" id="mms-cs">
+                                </div>
+                                <div class="input-container cost-input mms-cost-input smaller">
+                                    <p>Costo por tiempo de espera</p>
+                                    <input type="number" id="mms-cw">
+                                </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
                                     <input type="number" id="mms-prob">
@@ -169,6 +193,18 @@
                                     <p>Limite de personas</p>
                                     <input type="number" id="mmsk-servers">
                                 </div> 
+                                <div class="input-container">
+                                    <p>Costo</p>
+                                    <input type="checkbox" name="mmsk-cost" class="mmsk-cost"><label>Calcular costo</label>
+                                </div>
+                                <div class="input-container cost-input mmsk-cost-input smaller">
+                                    <p>Costo del servicio</p>
+                                    <input type="number" id="mmsk-cs">
+                                </div>
+                                <div class="input-container cost-input mmsk-cost-input smaller">
+                                    <p>Costo por tiempo de espera</p>
+                                    <input type="number" id="mmsk-cw">
+                                </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
                                     <input type="number" id="mmsk-prob">
@@ -247,9 +283,21 @@
                                     <input type="radio" class="distribution" name="general" value="erlang" ><label>Erlang</label><br>
                                 </div> 
                                 <div class="input-container" id="erlang_num">
-                                        <p>K</p>
-                                        <input type="number" id="mg1-k">
-                                    </div>
+                                    <p>K</p>
+                                    <input type="number" id="mg1-k">
+                                </div>
+                                <div class="input-container">
+                                    <p>Costo</p>
+                                    <input type="checkbox" name="mg1-cost" class="mg1-cost"><label>Calcular costo</label>
+                                </div>
+                                <div class="input-container cost-input mg1-cost-input smaller">
+                                    <p>Costo del servicio</p>
+                                    <input type="number" id="mg1-cs">
+                                </div>
+                                <div class="input-container cost-input mg1-cost-input smaller">
+                                    <p>Costo por tiempo de espera</p>
+                                    <input type="number" id="mg1-cw">
+                                </div>
                                 <div class="input-container">
                                     <p>Probabilidades</p>
                                     <input type="number" id="mg1-prob">

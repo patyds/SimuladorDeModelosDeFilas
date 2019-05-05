@@ -175,3 +175,15 @@ button{
 #erlang_num{
     display: none;
 }
+
+.input-container label{
+    font-size: 13px;
+}
+
+.cost-input{
+    display: none;
+}
+
+.smaller p{
+    font-size: 12px;
+}
