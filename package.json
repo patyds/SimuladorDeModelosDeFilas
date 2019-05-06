@@ -5,7 +5,13 @@
   "main": "main.js",
   "scripts": {
     "test": "test",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build":{
+    "appId": "com.mononucleo.mcs",
+    "productName": "SIMULADOR DE MODELOS DE FILAS"
   },
   "author": "Mononucleo",
   "license": "ISC",

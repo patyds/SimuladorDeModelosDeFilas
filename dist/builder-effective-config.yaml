@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.mononucleo.mcs
+productName: SIMULADOR DE MODELOS DE FILAS
+electronVersion: 4.1.4

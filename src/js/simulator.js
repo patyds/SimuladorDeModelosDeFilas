@@ -70,7 +70,6 @@ function erlang(){
 function mm1(){
     $("#mm1-table-cost").hide();
     movePerson();
-    $("#tbody-mg1-w").html("");
     if($("#mm1-arrival").val()=="" || $("#mm1-service").val()==""){
         alert("Por favor llene los campos requeridos")
     }else if(parseInt($("#mm1-arrival").val()) < 0 || parseInt($("#mm1-service").val()) < 0){
@@ -150,6 +149,7 @@ function mm1(){
 }
 
 function mms(){
+    movePerson()
     $("#mms-table-cost").hide();
     if($("#mms-arrival").val()=="" || $("#mms-service").val()=="" || $("#mms-servers").val()==""){
         alert("Por favor llene los campos requeridos")
@@ -230,6 +230,7 @@ function mms(){
 }
 
 function mmsk(){
+    movePerson()
     $("#mmsk-table-cost").hide();
     if($("#mmsk-arrival").val()=="" || $("#mmsk-service").val()=="" || $("#mmsk-servers").val()==""|| $("#mmsk-k").val()==""){
         alert("Por favor llene los campos requeridos")
@@ -313,13 +314,14 @@ function mmsk(){
 }
 
 function mg1(){
+    movePerson()
     $("#mg1-table-cost").hide();
     if($("#mg1-arrival").val()=="" || $("#mg1-service").val()==""){
         alert("Por favor llene los campos requeridos")
     }else if(parseInt($("#mg1-arrival").val()) < 0 || parseInt($("#mg1-service").val()) < 0){
         alert("Por favor, ingrese números positivos")
     }else if($("input[name='general']:checked").val()== undefined){
-        alert("Por favir, selecciona una distribución")
+        alert("Por favor, selecciona una distribución")
     }else{
         if(navigator.onLine){
             if( $('input[name=mg1-cost]').is(':checked')){
@@ -350,9 +352,9 @@ function mg1(){
                                     resbody.html("");
                                     for (let index = 0; index < mg1.probs.Observable.length; index++) {
                                         var row = $("<div></div>").addClass("trow")
-                                        var element = $("<div></div>").addClass("tdata number").text(mmg.probs.Observable[index]);
+                                        var element = $("<div></div>").addClass("tdata number").text(mg1.probs.Observable[index]);
                                         $(row).append(element);
-                                        element = $("<div></div>").addClass("tdata").text(mmg.probs.Probability[index].toFixed(4));
+                                        element = $("<div></div>").addClass("tdata").text(mg1.probs.Probability[index].toFixed(4));
                                         $(row).append(element);
                                         
                                         
@@ -421,9 +423,9 @@ function mg1(){
                                 resbody.html("");
                                 for (let index = 0; index < mg1.probs.Observable.length; index++) {
                                     var row = $("<div></div>").addClass("trow")
-                                    var element = $("<div></div>").addClass("tdata number").text(mmg.probs.Observable[index]);
+                                    var element = $("<div></div>").addClass("tdata number").text(mg1.probs.Observable[index]);
                                     $(row).append(element);
-                                    element = $("<div></div>").addClass("tdata").text(mmg.probs.Probability[index].toFixed(4));
+                                    element = $("<div></div>").addClass("tdata").text(mg1.probs.Probability[index].toFixed(4));
                                     $(row).append(element);
                                     
                                     
